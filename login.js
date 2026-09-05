@@ -1,6 +1,6 @@
 function ingresar(){
     let correo = document.getElementById("Correo").value;
-    let contrasena = document.getElementById("Contrasena").value;
+    let clave = document.getElementById("Clave").value;
 
     if (correo === "" || clave === "") {
         alert("Debe completar todos los campos");
@@ -15,6 +15,10 @@ function ingresar(){
     }
     if(clave.length !==4) {
         alert("La contraseña debe tener 4 caracteres")
+        return;
+    }
+    if(correo ==="" || clave ===""){
+        alert("Debe completar todos los campos");
         return;
     }
 
