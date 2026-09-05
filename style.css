@@ -1,31 +1,54 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: blue;
-}
-
-.login{
-    width: 300px;
-    margin:100px auto;
-    padding: 25px;
-    background-color: blue;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
-
-}
-
-h1{
+/* Página de Login */
+.login {
+    width: 400px;
+    max-width: 90%;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
-label{
-    display: block;
 
+.login h1 {
+    color: #0d47a1;
+    margin-bottom: 20px;
 }
-label{
+
+.login label {
     display: block;
-    margin-top:15px;
+    text-align: left;
+    color: #1b2a41;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
-input{
+
+.login input {
     width: 100%;
-    padding: 8px;
-    margin-top:5px;
+    padding: 10px;
+    border: 2px solid #1565c0;
+    border-radius: 8px;
+    outline: none;
+}
+
+.login input:focus {
+    border-color: #0d47a1;
+    box-shadow: 0 0 5px rgba(13, 71, 161, 0.3);
+}
+
+.login button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 10px;
+    background-color: #1565c0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #0d47a1;
 }
