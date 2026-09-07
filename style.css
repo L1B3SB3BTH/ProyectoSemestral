@@ -1,4 +1,107 @@
-/* Página de Login */
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f6ff;
+    color: #1b2a41;
+}
+
+
+
+
+header {
+    background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+
+header h1 {
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+
+
+
+.navbar {
+    background-color: #1565c0 !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+
+
+
+.presentacion {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.presentacion h2 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+}
+
+.presentacion p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.presentacion img {
+    width: 600px;
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+
+
+.productos {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.productos h2 {
+    color: #0d47a1;
+    margin-bottom: 30px;
+}
+
+
+
+
+.card {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    background-color: white;
+}
+
+.card-text {
+    color: #333;
+}
+
+
+
+
 .login {
     width: 400px;
     max-width: 90%;
@@ -29,12 +132,6 @@
     padding: 10px;
     border: 2px solid #1565c0;
     border-radius: 8px;
-    outline: none;
-}
-
-.login input:focus {
-    border-color: #0d47a1;
-    box-shadow: 0 0 5px rgba(13, 71, 161, 0.3);
 }
 
 .login button {
@@ -46,9 +143,115 @@
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    cursor: pointer;
 }
 
-.login button:hover {
+
+
+
+.contacto {
+    width: 600px;
+    max-width: 90%;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contacto h2 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 30px;
+}
+
+.contacto label {
+    display: block;
+    font-weight: bold;
+    color: #1b2a41;
+    margin-bottom: 5px;
+}
+
+.contacto input[type="text"],
+.contacto input[type="email"],
+.contacto textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #1565c0;
+    border-radius: 8px;
+}
+
+.contacto textarea {
+    resize: vertical;
+}
+
+.contacto input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #1565c0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+
+
+
+footer {
     background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+
+.registro {
+width: 600px;
+max-width: 90%;
+margin: 60px auto;
+padding: 40px;
+background-color: white;
+border-radius: 15px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.registro h2 {
+text-align: center;
+color: #0d47a1;
+margin-bottom: 30px;
+}
+
+.registro label {
+display: block;
+font-weight: bold;
+color: #1b2a41;
+margin-top: 15px;
+margin-bottom: 5px;
+}
+
+.registro input,
+.registro select {
+width: 100%;
+padding: 10px;
+border: 2px solid #1565c0;
+border-radius: 8px;
+}
+
+.registro input[type="submit"] {
+width: 100%;
+padding: 12px;
+margin-top: 25px;
+background-color: #1565c0;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 16px;
 }
