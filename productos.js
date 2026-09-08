@@ -1,6 +1,6 @@
-// ============================================================
+
 // Arreglo de productos (requisito: listado generado desde un arreglo JS)
-// ============================================================
+
 const PRODUCTOS = [
   {
     id: 1,
@@ -25,9 +25,9 @@ const PRODUCTOS = [
   }
 ];
 
-// ============================================================
-// Selección de productos (requisito 4.8) guardada en LocalStorage
-// ============================================================
+
+// Selección de productos  guardada en LocalStorage
+
 const CLAVE_SELECCION = 'seleccionSonidoVivo';
 
 function obtenerSeleccion() {
@@ -107,9 +107,9 @@ function renderizarSeleccion() {
   });
 }
 
-// ============================================================
+
 // Conecta los botones "Agregar a selección" que existan en la página
-// ============================================================
+
 document.addEventListener('DOMContentLoaded', () => {
   actualizarContadorSeleccion();
   renderizarSeleccion();
