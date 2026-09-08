@@ -1,5 +1,5 @@
 
-// Arreglo de productos (requisito: listado generado desde un arreglo JS)
+
 
 const PRODUCTOS = [
   {
@@ -26,7 +26,7 @@ const PRODUCTOS = [
 ];
 
 
-// Selección de productos  guardada en LocalStorage
+
 
 const CLAVE_SELECCION = 'seleccionSonidoVivo';
 
@@ -65,7 +65,7 @@ function actualizarContadorSeleccion() {
   }
 }
 
-// Dibuja la lista de seleccionados en seleccion.html (si esa página está cargada)
+
 function renderizarSeleccion() {
   const contenedor = document.getElementById('listaSeleccion');
   if (!contenedor) return;
@@ -108,7 +108,7 @@ function renderizarSeleccion() {
 }
 
 
-// Conecta los botones "Agregar a selección" que existan en la página
+
 
 document.addEventListener('DOMContentLoaded', () => {
   actualizarContadorSeleccion();

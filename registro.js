@@ -472,7 +472,7 @@ function mostrarMensajeRegistro(mensaje, tipo = 'error') {
 }
 
 
-// Carga las regiones en el <select> (arreglo -> opciones)
+
 
 regiones.forEach(function (regionActual, indice) {
     const opcion = document.createElement("option");
@@ -481,7 +481,7 @@ regiones.forEach(function (regionActual, indice) {
     region.appendChild(opcion);
 });
 
-// Al cambiar la región, recarga las comunas correspondientes
+
 
 region.addEventListener("change", function () {
     comuna.innerHTML = '<option value="">Seleccione una comuna</option>';
@@ -501,7 +501,7 @@ region.addEventListener("change", function () {
 });
 
 
-// Validación de RUN chileno (sin puntos ni guion + dígito verificador)
+
 
 function validarRUN(runIngresado) {
     if (runIngresado.includes(".") || runIngresado.includes("-")) {
@@ -542,8 +542,7 @@ function validarRUN(runIngresado) {
 }
 
 
-// Envío del formulario: junta todos los errores y los muestra
-// en un solo mensaje, en vez de un alert() por cada campo
+
 
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -595,7 +594,6 @@ formulario.addEventListener("submit", function (event) {
         errores.push("debe seleccionar una comuna");
     }
 
-    // Dirección: obligatoria, máximo 300 caracteres (faltaba esta validación)
     const valorDireccion = direccion.value.trim();
     if (valorDireccion === "") {
         errores.push("la dirección es obligatoria");
