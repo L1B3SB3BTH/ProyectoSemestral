@@ -441,7 +441,7 @@ const regiones = [
 ];
 
 
-// Referencias a los campos del formulario. no sabria muy
+
 
 const formulario = document.getElementById("formularioRegistro");
 
