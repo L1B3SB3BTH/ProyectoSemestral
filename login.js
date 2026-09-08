@@ -1,26 +1,57 @@
-function ingresar(){
-    let correo = document.getElementById("Correo").value;
-    let clave = document.getElementById("Clave").value;
+const USUARIO_DEMO = {
+  correo: 'admin@sonidovivo.cl',
+  clave: '1234'
+};
 
-    if (correo === "" || clave === "") {
-        alert("Debe completar todos los campos");
-        return;
-    }   
+const CLAVE_SESION = 'sonidoVivoSesion';
 
-    let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function mostrarMensaje(mensaje, tipo = 'error') {
+  const elemento = document.getElementById('mensajeLogin');
+  if (!elemento) return;
 
-    if(!formatoCorreo.test(correo)) {
-        alert("El correo no es válido");
-        return;
-    }
-    if(clave.length !==4) {
-        alert("La contraseña debe tener 4 caracteres")
-        return;
-    }
-    if(correo ==="" || clave ===""){
-        alert("Debe completar todos los campos");
-        return;
-    }
-
-
+  elemento.textContent = mensaje;
+  elemento.className = `mensaje-login ${tipo}`;
 }
+
+function ingresar(evento) {
+  evento.preventDefault();
+
+  const correo = document.getElementById('correo').value.trim().toLowerCase();
+  const clave = document.getElementById('clave').value;
+
+  if (!correo || !clave) {
+    mostrarMensaje('Debes completar todos los campos.');
+    return;
+  }
+
+  const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!formatoCorreo.test(correo)) {
+    mostrarMensaje('Ingresa un correo electrónico válido.');
+    return;
+  }
+
+  if (clave.length < 4) {
+    mostrarMensaje('La contraseña debe tener al menos 4 caracteres.');
+    return;
+  }
+
+  if (correo !== USUARIO_DEMO.correo || clave !== USUARIO_DEMO.clave) {
+    mostrarMensaje('El correo o la contraseña son incorrectos.');
+    return;
+  }
+
+  localStorage.setItem(CLAVE_SESION, JSON.stringify({
+    correo,
+    inicio: new Date().toISOString()
+  }));
+
+  mostrarMensaje('Ingreso correcto. Redirigiendo...', 'exito');
+  window.setTimeout(() => {
+    window.location.href = 'paginaPrincipal.html';
+  }, 500);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const formulario = document.getElementById('formularioLogin');
+  formulario.addEventListener('submit', ingresar);
+});

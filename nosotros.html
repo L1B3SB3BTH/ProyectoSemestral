@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="pagina.css" />
-    <title>Contacto — Tienda Sonido Vivo</title>
+    <title>Nosotros — Tienda Sonido Vivo</title>
 </head>
 <body>
     <header>
@@ -20,10 +20,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="paginaPrincipal.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="novedades.html">Novedades</a></li>
                         <li class="nav-item"><a class="nav-link" href="seleccion.html">Selección (<span id="contadorSeleccion">0</span>)</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="registroUsuario.html">Registrarse</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                     </ul>
@@ -34,22 +34,36 @@
 
     <main>
         <section>
-            <div class="contacto">
-                <h2>¿Tienes alguna duda? Contáctanos</h2>
-                <form id="formularioContacto" novalidate>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" maxlength="100" required>
+            <div class="nosotros">
+                <h2>Quiénes somos</h2>
+                <p>
+                    Tienda Sonido Vivo nació con una idea simple: acercar equipos de audio de
+                    buena calidad a un precio justo, con atención cercana y asesoría real para
+                    cada cliente. Trabajamos con parlantes portátiles, torres de sonido y
+                    accesorios pensados tanto para el día a día como para eventos y fiestas.
+                </p>
+                <p>
+                    Nuestro propósito es simple: que elegir un equipo de sonido no sea
+                    complicado. Por eso probamos cada producto que vendemos y solo
+                    recomendamos lo que efectivamente compraríamos nosotros mismos.
+                </p>
+            </div>
+        </section>
 
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" maxlength="100" required>
-
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="6" maxlength="500" required></textarea>
-
-                    <p id="mensajeContacto" class="mensaje-form" role="alert" aria-live="polite"></p>
-
-                    <input type="submit" value="Enviar">
-                </form>
+        <section>
+            <div class="equipo">
+                <h2>El equipo detrás del proyecto</h2>
+                <div class="equipo-grid">
+                    <div class="equipo-card">
+                        <h3>Simón</h3>
+                        <p>Desarrollo Frontend — estructura HTML, estilos y funcionalidades en JavaScript.</p>
+                    </div>
+                    <div class="equipo-card">
+                        
+                        <h3>jarem</h3>
+                        <p>Desarrollo Backend — lógica del servidor y gestión de base de datos.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -62,6 +76,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="productos.js"></script>
-    <script src="contacto.js"></script>
 </body>
 </html>

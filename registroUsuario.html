@@ -1,70 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="style.css" />
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="pagina.css" />
+    <title>Registro de Usuario — Tienda Sonido Vivo</title>
 </head>
+<body>
+    <header>
+        <h1>Tienda Sonido Vivo</h1>
 
-      <header>
-        <h1>Registro de Usuario</h1>
-      </header>
-    
-      <main> 
-           <secton>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="paginaPrincipal.html">Tienda Sonido Vivo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="paginaPrincipal.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="novedades.html">Novedades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="seleccion.html">Selección (<span id="contadorSeleccion">0</span>)</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="registroUsuario.html">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
             <div class="registro">
-                <form id="formularioRegistro">
-                    <label for="run">RUN:</label>
-                    <input type="text" id="run" name="run"><br><br>
+                <h2>Registro de Usuario</h2>
+                <form id="formularioRegistro" novalidate>
+                    <label for="run">RUN (sin puntos ni guion):</label>
+                    <input type="text" id="run" name="run" maxlength="9" required>
 
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre"><br><br>
+                    <input type="text" id="nombre" name="nombre" maxlength="50" required>
 
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" name="apellido"><br><br>
+                    <label for="apellido">Apellidos:</label>
+                    <input type="text" id="apellido" name="apellido" maxlength="100" required>
 
-                    <label for="correo">Correo electronico:</label>
-                    <input type="text" id="correo" name="correo electronico"><br><br>
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" maxlength="100" required>
+
+                    <label for="fechaNacimiento">Fecha de nacimiento (opcional):</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento">
 
                     <label for="tipoUsuario">Tipo de usuario:</label>
-                     <select id="tipoUsuario" name="tipoUsuario"> 
-                    <option value="">Seleccione un tipo</option> <option value="cliente">Cliente</option>
-                   </select>
-                   <label for="region">Región:</label>
-                    <select id="region" name="region">
-                   <option value="">Seleccione una región</option> 
-                   </select> 
-                   <label for="comuna">Comuna:</label>
-                    <select id="comuna" name="comuna"> <option value="">Seleccione una comuna</option>
-                   </select> <label for="direccion">Dirección:</label>
-                    <input type="text" id="direccion" name="direccion">
-                     <input type="submit" value="Registrar">
+                    <select id="tipoUsuario" name="tipoUsuario" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
 
-                   
+                    <label for="region">Región:</label>
+                    <select id="region" name="region" required>
+                        <option value="">Seleccione una región</option>
+                    </select>
 
-                    
+                    <label for="comuna">Comuna:</label>
+                    <select id="comuna" name="comuna" required>
+                        <option value="">Seleccione una comuna</option>
+                    </select>
 
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" maxlength="300" required>
 
+                    <p id="mensajeRegistro" class="mensaje-form" role="alert" aria-live="polite"></p>
+
+                    <input type="submit" value="Registrar">
                 </form>
-
-
             </div>
-           </secton>
-      </main>
+        </section>
+    </main>
 
-<footer>
-    <p>Tienda Sonido Vivo © 2026</p>
-    <p>Todos los derechos reservados.</p>
-    <p>Contacto: contacto@sonidovivo.cl</p>
-</footer>
+    <footer>
+        <p>Tienda Sonido Vivo © 2026</p>
+        <p>Todos los derechos reservados.</p>
+        <p>Contacto: contacto@sonidovivo.cl</p>
+    </footer>
 
-<script src="registro.js"></script>
-
-
-<body>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="productos.js"></script>
+    <script src="registro.js"></script>
 </body>
-
 </html>

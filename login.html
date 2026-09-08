@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sR4l4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Iniciar sesión - Tienda Sonido Vivo</title>
 </head>
 <body>
+    <main class="login" aria-labelledby="titulo-login">
+        <h1 id="titulo-login">Tienda Sonido Vivo</h1>
+        <h2>Iniciar sesión</h2>
 
-    
+        <form id="formularioLogin" novalidate>
+            <div class="mb-3 text-start">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" autocomplete="email" required>
+            </div>
 
-    
-    <div class="login">
-        <h1>Bienvenido Tienda de sonido vivo </h1>
-        <h1>Iniciar Sesion</h1>
-        <label>Correo:</label>
-        <input type="email" id="Correo">
-         <label>Clave</label>
-        <input type="password" id="clave" maxlength="4"> 
+            <div class="mb-3 text-start">
+                <label for="clave">Contraseña:</label>
+                <input type="password" id="clave" name="clave" autocomplete="current-password" minlength="4" required>
+            </div>
 
-         <button onclick="ingresar()">Ingresar</button>
+            <button type="submit">Ingresar</button>
+            <p id="mensajeLogin" class="mensaje-login" role="alert" aria-live="polite"></p>
+        </form>
 
+        <p class="credenciales-demo">
+            <strong>Acceso de prueba:</strong><br>
+            correo: admin@sonidovivo.cl<br>
+            contraseña: 1234
+        </p>
+    </main>
 
-        
-
-
-    </div>
     <script src="login.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    
 </body>
 </html>

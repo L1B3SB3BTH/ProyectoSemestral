@@ -1,119 +1,17 @@
-
-
+/* Página de Login */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f6ff;
-    color: #1b2a41;
-
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-main{
-    flex: 1;
-}
-
-
-
-
-header {
-    background-color: #0d47a1;
-    color: white;
-    text-align: center;
-    padding-top: 20px;
-}
-
-header h1 {
     margin: 0;
-    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
 }
-
-
-
-
-.navbar {
-    background-color: #1565c0 !important;
-}
-
-.navbar .nav-link,
-.navbar .navbar-brand {
-    color: white !important;
-}
-
-
-
-
-.presentacion {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: white;
-}
-
-.presentacion h2 {
-    color: #0d47a1;
-    margin-bottom: 20px;
-}
-
-.presentacion p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.presentacion img {
-    width: 600px;
-    max-width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-
-
-
-.productos {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.productos h2 {
-    color: #0d47a1;
-    margin-bottom: 30px;
-}
-
-
-
-
-.card {
-    display: inline-block;
-    vertical-align: top;
-    margin: 10px;
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.card img {
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-body {
-    background-color: white;
-}
-
-.card-text {
-    color: #333;
-}
-
-
-
 
 .login {
     width: 400px;
     max-width: 90%;
-    margin: 80px auto;
+    margin: 40px auto;
     padding: 40px;
     background-color: white;
     border-radius: 15px;
@@ -123,15 +21,20 @@ header h1 {
 
 .login h1 {
     color: #0d47a1;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.login h2 {
+    color: #1b2a41;
+    margin-bottom: 24px;
+    font-size: 1.35rem;
 }
 
 .login label {
     display: block;
-    text-align: left;
     color: #1b2a41;
     font-weight: bold;
-    margin-top: 15px;
     margin-bottom: 5px;
 }
 
@@ -140,126 +43,51 @@ header h1 {
     padding: 10px;
     border: 2px solid #1565c0;
     border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.login input:focus {
+    border-color: #0d47a1;
+    box-shadow: 0 0 5px rgba(13, 71, 161, 0.3);
 }
 
 .login button {
     width: 100%;
-    margin-top: 25px;
-    padding: 10px;
-    background-color: #1565c0;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-
-
-
-.contacto {
-    width: 600px;
-    max-width: 90%;
-    margin: 60px auto;
-    padding: 40px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.contacto h2 {
-    text-align: center;
-    color: #0d47a1;
-    margin-bottom: 30px;
-}
-
-.contacto label {
-    display: block;
-    font-weight: bold;
-    color: #1b2a41;
-    margin-bottom: 5px;
-}
-
-.contacto input[type="text"],
-.contacto input[type="email"],
-.contacto textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #1565c0;
-    border-radius: 8px;
-}
-
-.contacto textarea {
-    resize: vertical;
-}
-
-.contacto input[type="submit"] {
-    width: 100%;
-    padding: 12px;
     margin-top: 10px;
+    padding: 10px;
     background-color: #1565c0;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
 }
 
-
-
-
-
-footer {
+.login button:hover {
     background-color: #0d47a1;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 0px;
 }
 
-footer p {
-    margin: 5px;
+.mensaje-login {
+    min-height: 24px;
+    margin: 16px 0 0;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-
-
-.registro {
-width: 600px;
-max-width: 90%;
-margin: 60px auto;
-padding: 40px;
-background-color: white;
-border-radius: 15px;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.mensaje-login.error {
+    color: #b71c1c;
 }
 
-.registro h2 {
-text-align: center;
-color: #0d47a1;
-margin-bottom: 30px;
+.mensaje-login.exito {
+    color: #1b5e20;
 }
 
-.registro label {
-display: block;
-font-weight: bold;
-color: #1b2a41;
-margin-top: 15px;
-margin-bottom: 5px;
-}
-
-.registro input,
-.registro select {
-width: 100%;
-padding: 10px;
-border: 2px solid #1565c0;
-border-radius: 8px;
-}
-
-.registro input[type="submit"] {
-width: 100%;
-padding: 12px;
-margin-top: 25px;
-background-color: #1565c0;
-color: white;
-border: none;
-border-radius: 8px;
-font-size: 16px;
+.credenciales-demo {
+    margin: 24px 0 0;
+    padding: 12px;
+    border-radius: 8px;
+    background: #f1f8ff;
+    color: #1b2a41;
+    font-size: 0.85rem;
 }

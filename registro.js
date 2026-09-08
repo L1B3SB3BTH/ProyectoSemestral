@@ -441,314 +441,177 @@ const regiones = [
 ];
 
 
-
+// Referencias a los campos del formulario. no sabria muy
 
 const formulario = document.getElementById("formularioRegistro");
 
 const run = document.getElementById("run");
+
 const nombre = document.getElementById("nombre");
+
 const apellido = document.getElementById("apellido");
 
 
 const correo = document.getElementById("correo");
 
+
 const tipoUsuario = document.getElementById("tipoUsuario");
+
 const region = document.getElementById("region");
+
+
 const comuna = document.getElementById("comuna");
 
+const direccion = document.getElementById("direccion");
+
+function mostrarMensajeRegistro(mensaje, tipo = 'error') {
+    const elemento = document.getElementById('mensajeRegistro');
+    if (!elemento) return;
+    elemento.textContent = mensaje;
+    elemento.className = `mensaje-form ${tipo}`;
+}
 
 
+// Carga las regiones en el <select> (arreglo -> opciones)
 
 regiones.forEach(function (regionActual, indice) {
-
     const opcion = document.createElement("option");
-
     opcion.value = indice;
     opcion.textContent = regionActual.nombre;
-
     region.appendChild(opcion);
-
 });
 
-
-
+// Al cambiar la región, recarga las comunas correspondientes
 
 region.addEventListener("change", function () {
+    comuna.innerHTML = '<option value="">Seleccione una comuna</option>';
 
-    comuna.innerHTML =
-        '<option value="">Seleccione una comuna</option>';
-
-   
     if (region.value === "") {
         return;
     }
 
-  
     const regionSeleccionada = regiones[region.value];
 
-  
     regionSeleccionada.comunas.forEach(function (nombreComuna) {
-
         const opcion = document.createElement("option");
-
         opcion.value = nombreComuna;
         opcion.textContent = nombreComuna;
-
         comuna.appendChild(opcion);
-
     });
-
 });
 
 
-
+// Validación de RUN chileno (sin puntos ni guion + dígito verificador)
 
 function validarRUN(runIngresado) {
-
-  
-    if (
-        runIngresado.includes(".") ||
-        runIngresado.includes("-")
-    ) {
+    if (runIngresado.includes(".") || runIngresado.includes("-")) {
         return false;
     }
 
-   
     if (!/^[0-9]+[0-9Kk]$/.test(runIngresado)) {
         return false;
     }
 
-  
     const cuerpo = runIngresado.slice(0, -1);
-
-    const dv = runIngresado
-        .slice(-1)
-        .toUpperCase();
+    const dv = runIngresado.slice(-1).toUpperCase();
 
     let suma = 0;
-
     let multiplicador = 2;
 
-
-  
-    for (
-        let i = cuerpo.length - 1;
-        i >= 0;
-        i--
-    ) {
-
-        suma +=
-            parseInt(cuerpo[i]) *
-            multiplicador;
-
+    for (let i = cuerpo.length - 1; i >= 0; i--) {
+        suma += parseInt(cuerpo[i]) * multiplicador;
         multiplicador++;
-
         if (multiplicador > 7) {
             multiplicador = 2;
         }
-
     }
 
-
-   
     const resto = suma % 11;
-
     const resultado = 11 - resto;
-
     let dvCalculado;
 
-
     if (resultado === 11) {
-
         dvCalculado = "0";
-
-    }
-    else if (resultado === 10) {
-
+    } else if (resultado === 10) {
         dvCalculado = "K";
-
-    }
-    else {
-
+    } else {
         dvCalculado = resultado.toString();
-
     }
-
 
     return dv === dvCalculado;
-
 }
 
 
-
+// Envío del formulario: junta todos los errores y los muestra
+// en un solo mensaje, en vez de un alert() por cada campo
 
 formulario.addEventListener("submit", function (event) {
-
     event.preventDefault();
 
-    let valido = true;
-
-
-    
+    const errores = [];
 
     const valorRUN = run.value.trim();
-
     if (valorRUN === "") {
-
-        alert("El RUN es obligatorio.");
-
-        valido = false;
-
+        errores.push("el RUN es obligatorio");
+    } else if (valorRUN.includes(".") || valorRUN.includes("-")) {
+        errores.push("el RUN no debe contener puntos ni guion");
+    } else if (!validarRUN(valorRUN)) {
+        errores.push("el RUN ingresado no es válido");
     }
-    else if (
-        valorRUN.includes(".") ||
-        valorRUN.includes("-")
-    ) {
-
-        alert(
-            "El RUN no debe contener puntos ni guion."
-        );
-
-        valido = false;
-
-    }
-    else if (!validarRUN(valorRUN)) {
-
-        alert("El RUN ingresado no es válido.");
-
-        valido = false;
-
-    }
-
-
- 
 
     const valorNombre = nombre.value.trim();
-
     if (valorNombre === "") {
-
-        alert("El nombre es obligatorio.");
-
-        valido = false;
-
+        errores.push("el nombre es obligatorio");
+    } else if (valorNombre.length > 50) {
+        errores.push("el nombre no puede superar los 50 caracteres");
     }
-    else if (valorNombre.length > 50) {
-
-        alert(
-            "El nombre no puede superar los 50 caracteres."
-        );
-
-        valido = false;
-
-    }
-
-
-
 
     const valorApellido = apellido.value.trim();
-
     if (valorApellido === "") {
-
-        alert("Los apellidos son obligatorios.");
-
-        valido = false;
-
+        errores.push("los apellidos son obligatorios");
+    } else if (valorApellido.length > 100) {
+        errores.push("los apellidos no pueden superar los 100 caracteres");
     }
-    else if (valorApellido.length > 100) {
-
-        alert(
-            "Los apellidos no pueden superar los 100 caracteres."
-        );
-
-        valido = false;
-
-    }
-
-
-
 
     const valorCorreo = correo.value.trim();
-
-    const formatoCorreo =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
+    const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (valorCorreo === "") {
-
-        alert("El correo es obligatorio.");
-
-        valido = false;
-
+        errores.push("el correo es obligatorio");
+    } else if (valorCorreo.length > 100) {
+        errores.push("el correo no puede superar los 100 caracteres");
+    } else if (!formatoCorreo.test(valorCorreo)) {
+        errores.push("el correo electrónico no tiene un formato válido");
     }
-    else if (valorCorreo.length > 100) {
-
-        alert(
-            "El correo no puede superar los 100 caracteres."
-        );
-
-        valido = false;
-
-    }
-    else if (!formatoCorreo.test(valorCorreo)) {
-
-        alert(
-            "El correo electrónico no tiene un formato válido."
-        );
-
-        valido = false;
-
-    }
-
-
-
 
     if (tipoUsuario.value === "") {
-
-        alert(
-            "Debe seleccionar un tipo de usuario."
-        );
-
-        valido = false;
-
+        errores.push("debe seleccionar un tipo de usuario");
     }
-
-
-
 
     if (region.value === "") {
-
-        alert("Debe seleccionar una región.");
-
-        valido = false;
-
+        errores.push("debe seleccionar una región");
     }
-
-
-
 
     if (comuna.value === "") {
-
-        alert("Debe seleccionar una comuna.");
-
-        valido = false;
-
+        errores.push("debe seleccionar una comuna");
     }
 
-
-
-
-    if (valido) {
-
-        alert(
-            "Usuario registrado correctamente."
-        );
-
-        formulario.reset();
-
-        comuna.innerHTML =
-            '<option value="">Seleccione una comuna</option>';
-
+    // Dirección: obligatoria, máximo 300 caracteres (faltaba esta validación)
+    const valorDireccion = direccion.value.trim();
+    if (valorDireccion === "") {
+        errores.push("la dirección es obligatoria");
+    } else if (valorDireccion.length > 300) {
+        errores.push("la dirección no puede superar los 300 caracteres");
     }
 
+    if (errores.length > 0) {
+        const mensaje = errores.length === 1
+            ? 'Falta corregir: ' + errores[0] + '.'
+            : 'Falta corregir: ' + errores.join('; ') + '.';
+        mostrarMensajeRegistro(mensaje);
+        return;
+    }
+
+    mostrarMensajeRegistro('Usuario registrado correctamente.', 'exito');
+    formulario.reset();
+    comuna.innerHTML = '<option value="">Seleccione una comuna</option>';
 });
-
