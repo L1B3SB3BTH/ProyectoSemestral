@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
     <h1>mi coca</h1>
-    <Boton/>
+    <Boton/> 
 
     </div>
   );

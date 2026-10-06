@@ -1,8 +1,8 @@
 function app(){
     return (
-        <div>
+        <button>
             boton
-        </div>
+        </button>
     );
 }
 
