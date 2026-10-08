@@ -1,0 +1,47 @@
+/* ===== Inicio ===== */
+.display-5 {
+  background: linear-gradient(90deg, #ffffff, var(--color-acento));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  color: var(--color-texto-suave);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Tarjetas ===== */
+.card {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-acento);
+  box-shadow: 0 12px 28px rgba(230, 57, 70, 0.25) !important;
+}
+
+.card-title {
+  color: #ffffff;
+}
+
+/* ===== Detalle ===== */
+.row img.rounded {
+  border: 1px solid var(--color-borde);
+}
+
+ul.list-unstyled li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+ul.list-unstyled strong {
+  color: var(--color-acento);
+}

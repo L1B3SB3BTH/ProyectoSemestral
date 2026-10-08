@@ -1,0 +1,81 @@
+/* ===== Paleta ===== */
+:root {
+  --color-fondo: #0f1117;
+  --color-superficie: #1a1d27;
+  --color-borde: #2a2e3d;
+  --color-texto: #e8eaf0;
+  --color-texto-suave: #9aa0b4;
+  --color-acento: #e63946;
+  --color-acento-hover: #ff4d5a;
+}
+
+/* ===== Base ===== */
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.text-muted {
+  color: var(--color-texto-suave) !important;
+}
+
+/* ===== Barra de navegación ===== */
+.navbar {
+  background-color: #090b10 !important;
+  border-bottom: 3px solid var(--color-acento);
+}
+
+.navbar-brand {
+  color: var(--color-acento) !important;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.navbar .nav-link {
+  color: var(--color-texto-suave);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: #ffffff;
+}
+
+.navbar .nav-link.active {
+  color: #ffffff;
+  border-bottom-color: var(--color-acento);
+}
+
+/* ===== Botones ===== */
+.btn-primary {
+  --bs-btn-bg: var(--color-acento);
+  --bs-btn-border-color: var(--color-acento);
+  --bs-btn-hover-bg: var(--color-acento-hover);
+  --bs-btn-hover-border-color: var(--color-acento-hover);
+  --bs-btn-active-bg: #c92f3b;
+  --bs-btn-active-border-color: #c92f3b;
+  --bs-btn-color: #ffffff;
+  --bs-btn-hover-color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--color-borde);
+  --bs-btn-color: var(--color-texto);
+  --bs-btn-hover-bg: var(--color-superficie);
+  --bs-btn-hover-border-color: var(--color-acento);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-active-bg: var(--color-superficie);
+  --bs-btn-active-border-color: var(--color-acento);
+  font-weight: 600;
+}
