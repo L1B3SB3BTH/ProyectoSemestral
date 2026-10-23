@@ -1,0 +1,23 @@
+import { productosData, formatMoney } from '../../data/productos'
+import { ItemSeleccion } from '../moleculas/ItemSeleccion'
+
+type ProductSelectionProps = {
+  selection: number[]
+  onRemove: (id: number) => void
+}
+
+export function SeleccionProductos({ selection, onRemove }: ProductSelectionProps) {
+  const selectedProducts = productosData.filter((product) => selection.includes(product.id))
+  const total = selectedProducts.reduce((sum, product) => sum + product.precio, 0)
+
+  return (
+    <section className="content-card selection">
+      <h2>Mi selección</h2>
+      <p>Estos son los productos que has ido agregando desde la página principal. Se guardan en tu navegador.</p>
+      {selectedProducts.length === 0
+        ? <p className="empty">Todavía no has agregado productos a tu selección.</p>
+        : selectedProducts.map((product) => <ItemSeleccion key={product.id} product={product} onRemove={onRemove} />)}
+      <div className="total"><span>Total:</span><strong>{formatMoney(total)}</strong></div>
+    </section>
+  )
+}
